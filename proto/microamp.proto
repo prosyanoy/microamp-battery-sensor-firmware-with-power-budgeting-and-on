@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+// Records written to the device log (what would go over the radio).
+// Each record is stored length-delimited (varint length + message).
+
+enum EventClass {
+  EVENT_CLASS_NORMAL = 0;
+  EVENT_CLASS_HARSH_BRAKE = 1;
+  EVENT_CLASS_IMPACT = 2;
+}
+
+message Event {
+  uint32 timestamp_ms = 1;   // device uptime at event start
+  EventClass event_class = 2;
+  uint32 peak_mg = 3;        // peak |a - gravity| in milli-g
+  uint32 confidence = 4;     // classifier logit margin, 0..255
+  uint32 duration_ms = 5;
+}
+
+message Status {
+  uint32 timestamp_ms = 1;
+  uint32 battery_years_x100 = 2;   // estimated remaining life, years * 100
+  uint32 avg_current_na = 3;       // average draw since boot
+  uint32 events_total = 4;
+  uint32 windows_total = 5;        // inference runs
+  uint32 fifo_overruns = 6;
+  bool sensor_ok = 7;
+}
+
+message LogRecord {
+  uint32 seq = 1;
+  oneof payload {
+    Event event = 2;
+    Status status = 3;
+  }
+}

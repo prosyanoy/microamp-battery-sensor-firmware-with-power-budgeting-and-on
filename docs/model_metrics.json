@@ -1,0 +1,30 @@
+{
+ "train_windows": 67555,
+ "val_windows": 22501,
+ "val_acc_float": 0.9991111506155282,
+ "val_acc_int8": 0.9991111506155282,
+ "classes": [
+  "normal",
+  "harsh_brake",
+  "impact"
+ ],
+ "confusion_int8": [
+  [
+   18839,
+   0,
+   9
+  ],
+  [
+   0,
+   2541,
+   0
+  ],
+  [
+   11,
+   0,
+   1101
+  ]
+ ],
+ "n_params": 747,
+ "weight_bytes": 864
+}

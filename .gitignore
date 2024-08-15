@@ -1,0 +1,19 @@
+# dependencies / third-party sources fetched by scripts/bootstrap.sh
+third_party/
+.venv/
+venv/
+# build output
+build/
+out/
+*.o
+*.log
+*.bin
+# caches
+__pycache__/
+*.pyc
+.pytest_cache/
+.cache/
+# secrets / local config
+.env
+.env.*
+!.env.example

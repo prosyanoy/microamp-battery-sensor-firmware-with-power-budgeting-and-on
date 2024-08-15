@@ -1,0 +1,4 @@
+numpy>=1.26
+nanopb==0.4.9.1       # only needed to regenerate proto/*.pb.c (scripts/gen_proto.sh)
+grpcio-tools>=1.60    # protoc backend for the nanopb generator
+pytest>=8
